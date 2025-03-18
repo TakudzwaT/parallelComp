@@ -24,11 +24,9 @@ int main ()
         }
     }
     for(int i=0;i<nthreads;i++) {
-        printf("sum[%d] = %f\n",i,sum[i]);
-        printf("step = %f\n",step);
-        pi += sum[i]*step;
-        printf("pi = %f\n",pi);
+        pi += sum[i]*step;    
     }
+    printf("pi = %f\n",pi);
     return 0;
 }
 
