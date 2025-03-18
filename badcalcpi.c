@@ -11,9 +11,10 @@ int main(){
     {
         id = omp_get_thread_num();
         tthreads = omp_get_num_threads();
-        for(int i=id; i<steps; i+=tthreads){
+        for(int i=id; i<steps; i+=tthreads){           
             double x = (i+0.5)*step;
-            sum += 4.0/(1.0+x*x);
+            #pragma omp critical
+                sum += 4.0/(1.0+x*x);
         }
     }
     pi = sum*step;
